@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{09E7BD53-3AE1-4494-A5E0-58E2625EBBEA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Doms.HttpService</RootNamespace>
+    <AssemblyName>HttpService</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="NLog, Version=1.0.0.505, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AcceptNewConnectionEventArgs.cs" />
+    <Compile Include="AsyncNetwork\AsyncSocketException.cs" />
+    <Compile Include="AsyncNetwork\AsyncSocketSession.cs" />
+    <Compile Include="AsyncNetwork\ConnectionCloseEventArgs.cs" />
+    <Compile Include="AsyncNetwork\ReceiveBodyCompleteEventArgs.cs" />
+    <Compile Include="AsyncNetwork\ReceiveHeaderCompleteEventArgs.cs" />
+    <Compile Include="AsyncNetwork\SendCompleteEventArgs.cs" />
+    <Compile Include="AsyncNetwork\SocketReceiveState.cs" />
+    <Compile Include="AsyncNetwork\SocketSendState.cs" />
+    <Compile Include="AsyncNetwork\BodyTransferProgress.cs" />
+    <Compile Include="Configuration\BindConfigElement.cs" />
+    <Compile Include="Configuration\BindConfigElementCollection.cs" />
+    <Compile Include="Configuration\ConnectionConfigElement.cs" />
+    <Compile Include="Configuration\HttpServiceConfigSection.cs" />
+    <Compile Include="HttpHandler\DefaultProcessor.cs" />
+    <Compile Include="HttpHandler\HandlerContext.cs" />
+    <Compile Include="HttpHandler\IHttpHandler.cs" />
+    <Compile Include="HttpHandler\IHttpRequestProcessor.cs" />
+    <Compile Include="HttpProtocol\HttpResponseStatusCode.cs" />
+    <Compile Include="HttpProtocol\IProtocolHeader.cs" />
+    <Compile Include="HttpProtocol\HttpMethods.cs" />
+    <Compile Include="HttpProtocol\HttpRequestHeader.cs" />
+    <Compile Include="HttpProtocol\HttpResponseHeader.cs" />
+    <Compile Include="HttpProtocol\NameValueList.cs" />
+    <Compile Include="IConnectionMonitor.cs" />
+    <Compile Include="HttpServiceControler.cs" />
+    <Compile Include="ServerSession.cs" />
+    <Compile Include="Listener.cs" />
+    <Compile Include="HttpServiceException.cs" />
+    <Compile Include="ProcessorFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SessionWorkStatus.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="sample.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
